@@ -3,9 +3,9 @@
 	"year":2017,
 	"genero":"Drama",
 	"reparto":[
-		"actor":"Freddie Highmore",
-		"actor":"Nicholas Gonzalez"
-	]
+		{"actor":"Freddie Highmore"},
+		{"actor":"Nicholas Gonzalez"}
+	],
 	"trailer":"https://youtu.be/fYlZDTru55g",
 	"poster":"http://images.vertele.eldiario.es/2018/06/04/noticias/Telecinco-ficcion-USA-The-despues_2018508193_9321622_660x371.png"
 }
