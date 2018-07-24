@@ -1,0 +1,9 @@
+{
+	"videojuego": {
+		"titulo":"Fornite",
+		"genero":"Videojuego de supervivencia, Battle royale",
+		"descripcion":"Fortnite es un videojuego del año 2017 desarrollado por la empresa Epic Games, lanzado como diferentes paquetes de software que presentan diferentes modos de juego, pero que comparten el mismo motor general de juego y las mecánicas.",
+		"poster":"https://eteknix-eteknixltd.netdna-ssl.com/wp-content/uploads/2015/06/Fortnite-800x600.png",
+		"plataformas": "XBox One"
+	}
+}
