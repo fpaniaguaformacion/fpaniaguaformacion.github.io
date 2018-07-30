@@ -16,16 +16,7 @@
 			"poster":"http://memagazine.it/wp-content/uploads/2017/04/The-legend-of-Zelda-Breath-of-the-Wild.jpg",
 			"plataformas": "Nintendo Switch"
 		}
-	}, 
-	{
-		"videojuego": {
-			"titulo":"Halo: Master Chief Collection para Xbox One",
-			"genero":"FPS - Multijugador",
-			"descripcion":"Haciendo honor a este héroe icónico y a su travesía épica, toda la historia del Jefe Maestro ahora se reúne en la Master Chief Collection.",
-			"poster":"https://www.desktopbackground.org/download/800x600/2011/04/01/180937_halo-the-master-chief-collection-everything-you-need-to-know_1920x1080_h.jpg",
-			"plataformas": "XBox One"
-		}
-	}, 
+	},
 	{
 		"videojuego": {
 			"titulo":"Remothered: Tormented Fathers",
