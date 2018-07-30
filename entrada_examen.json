@@ -1,0 +1,47 @@
+{"videojuegos": [
+	{
+		"videojuego": {
+			"titulo":"Fornite",
+			"genero":"Videojuego de supervivencia, Battle royale",
+			"descripcion":"Fortnite es un videojuego del año 2017 desarrollado por la empresa Epic Games, lanzado como diferentes paquetes de software que presentan diferentes modos de juego, pero que comparten el mismo motor general de juego y las mecánicas.",
+			"poster":"https://eteknix-eteknixltd.netdna-ssl.com/wp-content/uploads/2015/06/Fortnite-800x600.png",
+			"plataformas": "XBox One"
+		}
+	},
+	{
+		"videojuego": {
+			"titulo":"The Legend of Zelda: Breath of the Wild",
+			"genero":"Videojuego de acción-aventura",
+			"descripcion":"The Legend of Zelda: Breath of the Wild es el título oficial del videojuego de acción-aventura de la serie The Legend of Zelda, desarrollado por Nintendo EPD, en colaboración con Monolith Soft para Wii U y Nintendo Switch.​",
+			"poster":"http://memagazine.it/wp-content/uploads/2017/04/The-legend-of-Zelda-Breath-of-the-Wild.jpg",
+			"plataformas": "Nintendo Switch"
+		}
+	}, 
+	{
+		"videojuego": {
+			"titulo":"Halo: Master Chief Collection para Xbox One",
+			"genero":"FPS - Multijugador",
+			"descripcion":"Haciendo honor a este héroe icónico y a su travesía épica, toda la historia del Jefe Maestro ahora se reúne en la Master Chief Collection.",
+			"poster":"https://www.desktopbackground.org/download/800x600/2011/04/01/180937_halo-the-master-chief-collection-everything-you-need-to-know_1920x1080_h.jpg",
+			"plataformas": "XBox One"
+		}
+	}, 
+	{
+		"videojuego": {
+			"titulo":"Remothered: Tormented Fathers",
+			"genero":"Survival-horror",
+			"descripcion":"Is the pure and realistic survival horror game.",
+			"poster":"http://irbgamer.com/wp-content/uploads/2018/02/Remothered-Tormented-Fathers-Announcement-Trailer-Cover.jpg",
+			"plataformas": "XBox One"
+		}
+	}, 
+	{
+		"videojuego": {
+			"titulo":"Halo Reach",
+			"genero":"FPS",
+			"descripcion":"Halo Reach, conocido simplemente como Reach, es un videojuego de disparos en primera persona desarrollado por Bungie y publicado por Microsoft Game Studios para la consola Xbox 360, o simplemente conocido como 360 y retrocompatible con Xbox One.",
+			"poster":"https://t2.kn3.net/taringa/8/4/3/9/0/2/SonicShadow311/921.jpg",
+			"plataformas": "XBox 360"
+		}
+	}
+]}
