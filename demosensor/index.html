@@ -4,8 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        #box {
+            -webkit-box-shadow: 10px 10px 10px 5px #000000;
+            box-shadow: 10px 10px 10px 5px #000000;
+            width: 50%;
+            height: 100px;
+        }
+    </style>
     <script>
         function inicializar() {
+            var box = document.getElementById("box");
             window.addEventListener('deviceorientation', function(event) {
                 var alpha = event.alpha;
                 var beta = event.beta;
@@ -13,26 +22,34 @@
                 document.getElementById("alpha").innerHTML = alpha;
                 document.getElementById("beta").innerHTML = beta;
                 document.getElementById("gamma").innerHTML = gamma;
+
+                box.style.-webkit-box-shadow = alpha + "px 10px 10px 5px #000000;";
+                box.sytel.box-shadow = alpha + "px 10px 10px 5px #000000;";
             },true);
-            window.addEventListener('devicemotion', function(event) {
+            /* window.addEventListener('devicemotion', function(event) {
                 var x = event.accelerationIncludingGravity.x;
                 var y = event.accelerationIncludingGravity.y;
                 var z = event.accelerationIncludingGravity.z;
                 document.getElementById("x").innerHTML = x;
                 document.getElementById("y").innerHTML = y;
                 document.getElementById("z").innerHTML = z;
-            },true);
+            },true); */
         }
     </script>
 </head>
 <body onload="inicializar()">
+    <div id="box">
+        
+    </div>
     <h1>ORIENTATION</h1>
     <div id="alpha"></div>
     <div id="beta"></div>
     <div id="gamma"></div>
-    <h1>MOTION</h1>
+    
+    <!-- <h1>MOTION</h1>
     <div id="x"></div>
     <div id="y"></div>
-    <div id="z"></div>
+    <div id="z"></div> -->
+    
 </body>
 </html>
