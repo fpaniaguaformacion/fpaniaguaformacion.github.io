@@ -16,9 +16,11 @@
         }
     </style>
     <script>
+        function vibrar() {
+            window.navigator.vibrate(500);
+        }
         function inicializar() {
             var box = document.getElementById("box");
-            window.navigator.vibrate(300,1000,300,1000,300,2000,100);
             window.addEventListener('deviceorientation', function(event) {
                 var alpha = event.alpha;
                 var beta = event.beta;
@@ -45,6 +47,7 @@
     <div id="box">
         
     </div>
+    <button onclick="vibrar()">Vibrar</button>
     <!-- <h1>ORIENTATION</h1>
     <div id="alpha"></div>
     <div id="beta"></div>
