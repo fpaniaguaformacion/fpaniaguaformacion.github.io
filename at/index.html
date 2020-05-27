@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function inicializar() {
+            window.addEventListener('deviceorientation', function(event) {
+                var alpha = event.alpha;
+                var beta = event.beta;
+                var gamma = event.gamma;
+                document.getElementById("alpha").innerHTML = alpha;
+                document.getElementById("beta").innerHTML = beta;
+                document.getElementById("gamma").innerHTML = gamma;
+            },true);
+            window.addEventListener('devicemotion', function(event) {
+                var x = event.accelerationIncludingGravity.x;
+                var y = event.accelerationIncludingGravity.y;
+                var z = event.accelerationIncludingGravity.z;
+                document.getElementById("x").innerHTML = x;
+                document.getElementById("y").innerHTML = y;
+                document.getElementById("z").innerHTML = z;
+            },true);
+        }
+    </script>
+</head>
+<body onload="inicializar()">
+    <h1>ORIENTATION</h1>
+    <div id="alpha"></div>
+    <div id="beta"></div>
+    <div id="gamma"></div>
+    <h1>MOTION</h1>
+    <div id="x"></div>
+    <div id="y"></div>
+    <div id="z"></div>
+</body>
+</html>
