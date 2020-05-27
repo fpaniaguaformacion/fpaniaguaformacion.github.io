@@ -6,10 +6,13 @@
     <title>Document</title>
     <style>
         #box {
-            -webkit-box-shadow: 10px 10px 10px 5px #000000;
-            box-shadow: 10px 10px 10px 5px #000000;
             width: 50%;
             height: 100px;
+            margin:auto;
+            margin-top:25%;
+
+            -webkit-box-shadow: 10px 10px 10px 5px #000000;
+            box-shadow: 10px 10px 10px 5px #000000;
         }
     </style>
     <script>
@@ -23,8 +26,8 @@
                 document.getElementById("beta").innerHTML = beta;
                 document.getElementById("gamma").innerHTML = gamma;
 
-                box.setAttribute("style", "-webkit-box-shadow: " + gamma + "px 10px 10px 5px #000000;");
-                box.setAttribute("style", "box-shadow: " + gamma + "px 10px 10px 5px #000000;");
+                box.setAttribute("style", "-webkit-box-shadow: " + gamma + "px "+beta+"px 10px 5px #000000;");
+                box.setAttribute("style", "box-shadow: " + gamma + "px "+beta+"px 10px 5px #000000;");
             },true);
             /* window.addEventListener('devicemotion', function(event) {
                 var x = event.accelerationIncludingGravity.x;
@@ -41,10 +44,10 @@
     <div id="box">
         
     </div>
-    <h1>ORIENTATION</h1>
+    <!-- <h1>ORIENTATION</h1>
     <div id="alpha"></div>
     <div id="beta"></div>
-    <div id="gamma"></div>
+    <div id="gamma"></div> -->
     
     <!-- <h1>MOTION</h1>
     <div id="x"></div>
