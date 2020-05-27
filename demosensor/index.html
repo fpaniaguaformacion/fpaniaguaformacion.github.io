@@ -18,6 +18,7 @@
     <script>
         function inicializar() {
             var box = document.getElementById("box");
+            window.navigator.vibrate(300);
             window.addEventListener('deviceorientation', function(event) {
                 var alpha = event.alpha;
                 var beta = event.beta;
