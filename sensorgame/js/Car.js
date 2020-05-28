@@ -1,5 +1,5 @@
 const widthPct = 0.1;
-const speed = 1;
+const speed = 3;
 class Car {
     constructor(sprite) {
         this.sprite = new Image();
