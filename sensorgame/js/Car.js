@@ -8,10 +8,12 @@ class Car {
         this.xInitial = (window.innerWidth - this.width) / 2;
         this.x = this.xInitial;
         this.y = window.innerHeight - this.height*2;
-        this.speed = 3;        
+        this.speed = 3;
+        this.rectangle = new Rectangle(this.x, this.y, this.width, this.height);        
     }
     move(angle) {
         this.x = this.xInitial + angle * this.speed; 
+        this.rectangle.x = this.x;
     }
     draw() {
         ctx.drawImage(this.sprite, this.x, this.y, this.width, this.height);

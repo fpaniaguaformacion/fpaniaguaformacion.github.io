@@ -15,7 +15,7 @@ function inicializar() {
     inicializarObjetos();
     inicializarListener();
 
-    setInterval(drawScreen,0.17);
+    setInterval(gameLoop,0.17);
     setInterval(incrementarPuntuacion,RATIO_PUNTUACION);
     setInterval(crearArbol,TIEMPO_ENTRE_ARBOLES);
 }
@@ -40,8 +40,11 @@ function inicializarListener(){
     },true);
 }
 
-function drawScreen(){
-    //Background
+function gameLoop(){
+    //Comprobar colisiones
+    comprobarColisiones();
+
+    //Draw Background
     bg1.move();
     bg2.move();
     trees.forEach(tree => {
@@ -49,6 +52,7 @@ function drawScreen(){
     });
     bg1.draw();
     bg2.draw();
+
     //Score
     ctx.fillStyle = "#FFFFFF";
     ctx.font = "12px 'Press Start 2P'";
@@ -61,7 +65,8 @@ function drawScreen(){
     ctx.fillText(txtScore, 50, 40);
     ctx.fillText("HI", window.innerWidth - 50, 20);
     ctx.fillText("000000", window.innerWidth - 50, 40);
-    //GameObjects
+
+    //Draw GameObjects
     trees.forEach(tree => {
         tree.draw();    
     });
@@ -80,4 +85,13 @@ function crearArbol() {
     if (trees.length<NUMERO_ARBOLES) {
         trees.push(new Tree("tree1.png"));
     }
+}
+
+function comprobarColisiones(){
+    trees.forEach(tree => {
+        if (car.x > tree.x && car.x < tree.x + tree.width) {
+                
+        }
+        
+    });
 }
