@@ -4,26 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="./js/Car.js"></script>
+    <script src="./js/Background.js"></script>
+    <link rel="stylesheet" href="./css/sensorgame.css">
     <title>Sensor Game</title>
-    <style>
-        * {
-            margin:0px;
-            overflow: hidden;
-        }
-        #box {
-            width: 50%;
-            height: 100px;
-            margin:auto;
-            margin-top:45%;
-
-            -webkit-box-shadow: 10px 10px 10px 5px #000000;
-            box-shadow: 10px 10px 10px 5px #000000;
-        }
-    </style>
     <script>
         var c;
         var ctx;
         var car;
+        var bg1;
+        var bg2;
         function vibrar() {
             window.navigator.vibrate(500);
         }
@@ -33,8 +22,12 @@
             c.height = window.innerHeight;
             ctx = c.getContext("2d");
             ctx.imageSmoothingEnabled = false;
+            ctx.font = "30px Arial";
+            ctx.fillText("Hello World", 10, 50);
 
             car = new Car("car1.png");
+            bg1 = new Background(0);
+            bg2 = new Background(-window.innerHeight);
             setInterval(drawScreen,0.17);
 
             window.addEventListener('deviceorientation', function(event) {
@@ -45,8 +38,21 @@
             },true);
         }
         function drawScreen(){
-            ctx.fillRect(0, 0, window.innerWidth, window.innerHeight);
-            car.draw(ctx);
+            //ctx.fillStyle = "#000000";
+            //ctx.fillRect(0, 0, window.innerWidth, window.innerHeight);
+            bg1.move();
+            bg2.move();
+
+            bg1.draw();
+            bg2.draw();
+            ctx.fillStyle = "#FFFFFF";
+            ctx.font = "10px 'Press Start 2P'";
+            ctx.textAlign = "center";
+            ctx.fillText("000000", 50, 40);
+            ctx.fillText("HI", window.innerWidth - 50, 20);
+            ctx.fillText("000000", window.innerWidth - 50, 40);
+            car.draw();
+            
         }
     </script>
 </head>

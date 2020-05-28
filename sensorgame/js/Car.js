@@ -13,7 +13,7 @@ class Car {
     move(angle) {
         this.x = this.xInitial + angle * speed; 
     }
-    draw(ctx) {
+    draw() {
         ctx.drawImage(this.sprite, this.x, this.y, this.width, this.height);
     }
 }
