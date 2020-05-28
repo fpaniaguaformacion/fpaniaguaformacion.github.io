@@ -6,10 +6,9 @@ class Background {
         this.height = window.innerHeight;
         this.x = 0;
         this.y = y;
-        this.speed = 2;
     }
     move() {
-        this.y = this.y + this.speed;
+        this.y = this.y + globalSpeed;
         if (this.y > window.innerHeight){
             this.y = -window.innerHeight;
         }

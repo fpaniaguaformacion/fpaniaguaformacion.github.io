@@ -2,17 +2,22 @@
 var c;
 var ctx;
 var car;
+var trees = new Array();
 var bg1;
 var bg2;
 var score = 0;
+var globalSpeed = 2;
 const RATIO_PUNTUACION = 0.1;
+const TIEMPO_ENTRE_ARBOLES = 400;
+const NUMERO_ARBOLES = 4;
 function inicializar() {
     inicializarContexto();
     inicializarObjetos();
     inicializarListener();
 
     setInterval(drawScreen,0.17);
-    setInterval(incrementarPuntuacion,RATIO_PUNTUACION)
+    setInterval(incrementarPuntuacion,RATIO_PUNTUACION);
+    setInterval(crearArbol,TIEMPO_ENTRE_ARBOLES);
 }
 function inicializarContexto(){
     c = document.getElementById("canvas");
@@ -39,6 +44,9 @@ function drawScreen(){
     //Background
     bg1.move();
     bg2.move();
+    trees.forEach(tree => {
+        tree.move();    
+    });
     bg1.draw();
     bg2.draw();
     //Score
@@ -54,6 +62,9 @@ function drawScreen(){
     ctx.fillText("HI", window.innerWidth - 50, 20);
     ctx.fillText("000000", window.innerWidth - 50, 40);
     //GameObjects
+    trees.forEach(tree => {
+        tree.draw();    
+    });
     car.draw();
 }
 
@@ -65,3 +76,8 @@ function incrementarPuntuacion(){
     score++;
 }
 
+function crearArbol() {
+    if (trees.length<NUMERO_ARBOLES) {
+        trees.push(new Tree("tree1.png"));
+    }
+}
