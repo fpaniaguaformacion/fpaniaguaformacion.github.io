@@ -1,5 +1,4 @@
-const widthPct = 0.05;
-const heightPct = 0.05;
+const widthPct = 0.1;
 const speed = 1;
 class Car {
     constructor(sprite) {
