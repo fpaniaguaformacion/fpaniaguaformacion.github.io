@@ -8,19 +8,23 @@ var bg2;
 var score = 0;
 var globalSpeed = 2;
 var treeInterval;
+var playing = false;
 const RATE_SCORE = 0.1;
 const TIME_BETWEEN_TREES = 400;
 const NUMER_OF_TREES = 4;
 const LENGTH_VIBRATION = 100;
-function inicializar() {
+function initGame() {
     initContext();
     initObjects();
     initListeners();
 
     setInterval(gameLoop, 0.17);
     setInterval(increaseScore, RATE_SCORE);
+}
+function initTrees(){
     treeInterval = setInterval(createTree, TIME_BETWEEN_TREES);
 }
+
 function initContext() {
     c = document.getElementById("canvas");
     c.width = window.innerWidth;
@@ -38,8 +42,15 @@ function initListeners() {
         //var alpha = event.alpha;
         //var beta = event.beta;
         var gamma = event.gamma;
-        car.move(gamma);
+        if (playing) {
+            car.move(gamma);
+        }
     }, true);
+
+    window.addEventListener('touchstart', function(){
+        initTrees();
+        playing = true;
+    })
 }
 
 function gameLoop() {
@@ -47,11 +58,13 @@ function gameLoop() {
     checkCollisions();
 
     //Draw Background
-    bg1.move();
-    bg2.move();
-    trees.forEach(tree => {
-        tree.move();
-    });
+    if (playing){
+        bg1.move();
+        bg2.move();
+        trees.forEach(tree => {
+            tree.move();
+        });
+    }
     bg1.draw();
     bg2.draw();
 
@@ -68,6 +81,11 @@ function gameLoop() {
     ctx.fillText("HI", window.innerWidth - 50, 20);
     ctx.fillText("000000", window.innerWidth - 50, 40);
 
+    //Touch to start
+    if (!playing){
+        ctx.fillText("TAP TO START", window.innerWidth / 2, window.innerHeight / 2);
+    }
+
     //Draw GameObjects
     trees.forEach(tree => {
         tree.draw();
@@ -80,7 +98,9 @@ function vibrate() {
 }
 
 function increaseScore() {
-    score++;
+    if (playing) {
+        score++;
+    }
 }
 
 function createTree() {
