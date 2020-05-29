@@ -94,8 +94,9 @@ function createTree() {
 function checkCollisions() {
     trees.forEach(tree => {
         if (hayColision(car, tree) && car.collisionable){
-            //vibrate();
+            score=0;
             car.receiveCollision();
+            vibrate();
         }
     });
 }
