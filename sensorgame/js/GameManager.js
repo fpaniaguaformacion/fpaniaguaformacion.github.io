@@ -11,7 +11,7 @@ var treeInterval;
 const RATE_SCORE = 0.1;
 const TIME_BETWEEN_TREES = 400;
 const NUMER_OF_TREES = 4;
-const LENGTH_VIBRATION = 1000;
+const LENGTH_VIBRATION = 100;
 function inicializar() {
     initContext();
     initObjects();
