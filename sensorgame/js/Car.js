@@ -1,5 +1,7 @@
+const TIME_TO_RESTORE_COL=1000;
 class Car {
     constructor(sprite) {
+        this.collisionable = true;
         this.sprite = new Image();
         this.sprite.src = sprite;
         this.widthPct = 0.1;
@@ -17,5 +19,11 @@ class Car {
     }
     draw() {
         ctx.drawImage(this.sprite, this.x, this.y, this.width, this.height);
+    }
+    receiveCollision(){
+        this.collisionable = false;
+        setTimeout(function(){
+            car.collisionable = true;
+        }, TIME_TO_RESTORE_COL);
     }
 }

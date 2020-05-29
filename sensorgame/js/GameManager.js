@@ -7,48 +7,50 @@ var bg1;
 var bg2;
 var score = 0;
 var globalSpeed = 2;
-const RATIO_PUNTUACION = 0.1;
-const TIEMPO_ENTRE_ARBOLES = 400;
-const NUMERO_ARBOLES = 4;
+var treeInterval;
+const RATE_SCORE = 0.1;
+const TIME_BETWEEN_TREES = 400;
+const NUMER_OF_TREES = 4;
+const LENGTH_VIBRATION = 1000;
 function inicializar() {
-    inicializarContexto();
-    inicializarObjetos();
-    inicializarListener();
+    initContext();
+    initObjects();
+    initListeners();
 
-    setInterval(gameLoop,0.17);
-    setInterval(incrementarPuntuacion,RATIO_PUNTUACION);
-    setInterval(crearArbol,TIEMPO_ENTRE_ARBOLES);
+    setInterval(gameLoop, 0.17);
+    setInterval(increaseScore, RATE_SCORE);
+    treeInterval = setInterval(createTree, TIME_BETWEEN_TREES);
 }
-function inicializarContexto(){
+function initContext() {
     c = document.getElementById("canvas");
     c.width = window.innerWidth;
     c.height = window.innerHeight;
     ctx = c.getContext("2d");
     ctx.imageSmoothingEnabled = false;
 }
-function inicializarObjetos(){
+function initObjects() {
     car = new Car("car1.png");
     bg1 = new Background(0);
     bg2 = new Background(-window.innerHeight);
 }
-function inicializarListener(){
-    window.addEventListener('deviceorientation', function(event) {
+function initListeners() {
+    window.addEventListener('deviceorientation', function (event) {
         //var alpha = event.alpha;
         //var beta = event.beta;
         var gamma = event.gamma;
         car.move(gamma);
-    },true);
+    }, true);
 }
 
-function gameLoop(){
+function gameLoop() {
     //Comprobar colisiones
-    comprobarColisiones();
+    checkCollisions();
 
     //Draw Background
     bg1.move();
     bg2.move();
     trees.forEach(tree => {
-        tree.move();    
+        tree.move();
     });
     bg1.draw();
     bg2.draw();
@@ -58,40 +60,51 @@ function gameLoop(){
     ctx.font = "12px 'Press Start 2P'";
     ctx.textAlign = "center";
     var txtScore = "";
-    for (i=0;i<6-score.toString().length;i++){
-        txtScore+="0";
+    for (i = 0; i < 6 - score.toString().length; i++) {
+        txtScore += "0";
     }
-    txtScore+=score;
+    txtScore += score;
     ctx.fillText(txtScore, 50, 40);
     ctx.fillText("HI", window.innerWidth - 50, 20);
     ctx.fillText("000000", window.innerWidth - 50, 40);
 
     //Draw GameObjects
     trees.forEach(tree => {
-        tree.draw();    
+        tree.draw();
     });
     car.draw();
 }
 
-function vibrar() {
-    window.navigator.vibrate(500);
+function vibrate() {
+    window.navigator.vibrate(LENGTH_VIBRATION);
 }
 
-function incrementarPuntuacion(){
+function increaseScore() {
     score++;
 }
 
-function crearArbol() {
-    if (trees.length<NUMERO_ARBOLES) {
+function createTree() {
+    if (trees.length < NUMER_OF_TREES) {
         trees.push(new Tree("tree1.png"));
+    } else {
+        clearInterval(treeInterval);
     }
 }
 
-function comprobarColisiones(){
+function checkCollisions() {
     trees.forEach(tree => {
-        if (car.x > tree.x && car.x < tree.x + tree.width) {
-                
+        if (hayColision(car, tree) && car.collisionable){
+            //vibrate();
+            car.receiveCollision();
         }
-        
     });
+}
+
+function hayColision(o1, o2){
+    if (o1.x > o2.x && o1.x < o2.x+o2.width && o1.y > o2.y && o1.y < o2.y+o2.height){
+        return true;
+    }
+    if (o1.x+o1.width > o2.x && o1.x+o1.width < o2.x+o2.width && o1.y > o2.y && o1.y < o2.y+o2.height){
+        return true;
+    }
 }
