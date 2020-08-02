@@ -25,7 +25,8 @@ img {
 }
 
 footer {
-    height: 100px;
+    padding-top: 100px;
+    text-align: right;
 }
 
 .logo {
